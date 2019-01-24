@@ -10,7 +10,52 @@
 
 ******/
 
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+	box-sizing: border-box;
+	font-family: 'Helvetica', sans-serif;
+}
+
 .container {
 	width: 500px;
 	margin: 0 auto;
+}
+
+.item {
+	border: 1px solid black;
+	border-radius: 5px;
+	margin: 1rem 0;
+	position: relative;
+}
+
+.title {
+	background-color: #DB4006;
+	color: #fff;
+	margin-top: 0;
+	padding: .5rem 0 .5rem 1.5rem;
+	font-size: 18px;
+}
+
+.description {
+	background-color: #ec9371;
+	font-size: 1.5rem;
+	padding: 1rem 1rem 1rem 1.5rem;
+}
+
+.close {
+	position: absolute;
+	top: .4rem;
+	right: .7rem;
+	font-size: 1.7rem;
 }
