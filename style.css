@@ -50,7 +50,8 @@ body {
 .description {
 	background-color: #ec9371;
 	font-size: 1.5rem;
-	padding: 1rem 1rem 1rem 1.5rem;
+	padding: 1rem 0 1rem 1.5rem;
+	display: block;
 }
 
 .close {
@@ -58,4 +59,13 @@ body {
 	top: .4rem;
 	right: .7rem;
 	font-size: 1.7rem;
+	cursor: pointer;
+}
+
+.add {
+	padding: .25rem .7rem;
+}
+
+.hide {
+	/* display: none; */
 }
