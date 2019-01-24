@@ -1,30 +1,28 @@
 // Please complete the below exercises preferrably using JQuery
 
 var main = (function() {
-        
-    // 1. Make each item's paragraph collapse/expand when the title is clicked
     var itemList = document.querySelector('.item-list');
-    console.log('item-list length:', itemList.children.length);
 
+    // 1. Make each item's paragraph collapse/expand when the title is clicked
     function toggleDescription(element) {
         if (element.classList.contains('hide')) {
-            element.classList.remove('hide');
             $(element).slideDown('slow', 'swing');
+            element.classList.remove('hide');
         } else {
-            element.classList.add('hide');
             $(element).slideUp('slow', 'swing');
+            element.classList.add('hide');
         }
     }
 
     // 2. Remove each item when we click on the closing X
-
-
-
-
+    function deleteElement(element) {
+        itemList.removeChild(element);
+    }
 
     // 3. Create a new item using the input field
     //    The title of the new item has to match the input value
     //    The new item should also have the same properties (collapse/expand and close) as the other items
+    console.log('item-list length:', itemList.children.length);
 
 
 
@@ -35,15 +33,21 @@ var main = (function() {
     //    depending on the number of items already on the page
 
     return {
-        event: function(event, element) {
+        toggleDesc: function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+
             var descriptionElement = event.target.parentElement.childNodes[5];
             if (descriptionElement) {
                 toggleDescription(descriptionElement);
             }
         },
-        close: function(event, element) {
-            console.log('close');
+        deleteItem: function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            var closeElement = event.target.parentElement;
+            deleteElement(closeElement);
         }
     }
-
 })()
