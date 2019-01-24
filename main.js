@@ -69,7 +69,33 @@ var main = (function() {
     //    If the user clicks "Add New" and the input is empty, 
     //    the new item's title needs to default to Title {number} (ex: Title 6 or Title 7)
     //    depending on the number of items already on the page
-    console.log('item-list length:', itemList.children.length);
+    function createNewEmptyItem() {
+        var numberOfItems = itemList.children.length;
+        var item = document.createElement('div');
+        var h1 = document.createElement('h1');
+        var span = document.createElement('span');
+        var p = document.createElement('p');
+
+        item.id = uuidv4();
+        item.classList.add('item');
+        h1.classList.add('title');
+        h1.onclick = function() {
+            main.toggleDesc(event);
+        }
+        h1.textContent = 'Title ' + (numberOfItems + 1);
+        span.classList.add('close');
+        span.onclick = function() {
+            main.deleteItem(event);
+        }
+        span.textContent = 'x';
+        p.classList.add('description');
+        p.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id scelerisque lacus, rutrum lobortis nisl. Ut dapibus, quam in auctor pharetra, nibh erat pharetra velit, vitae tristique mauris dui quis.';
+
+        item.appendChild(h1);
+        item.appendChild(span);
+        item.appendChild(p);
+        itemList.appendChild(item);
+    }
 
 
     return {
@@ -97,7 +123,7 @@ var main = (function() {
 
             var input = event.target.previousElementSibling.value;
             if (input === '') {
-                console.log('TODO: make function to handle empty string');
+                createNewEmptyItem();
             } else {
                 createNewItem(input);
             }
