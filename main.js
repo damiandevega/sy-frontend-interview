@@ -1,5 +1,4 @@
 // Please complete the below exercises preferrably using JQuery
-
 var main = (function() {
     var itemList = document.querySelector('.item-list');
 
@@ -44,12 +43,12 @@ var main = (function() {
         item.id = uuidv4();
         item.classList.add('item');
         h1.classList.add('title');
-        h1.onclick = function() {
+        h1.onclick = function(event) {
             main.toggleDesc(event);
         }
         h1.textContent = input;
         span.classList.add('close');
-        span.onclick = function() {
+        span.onclick = function(event) {
             main.deleteItem(event);
         }
         span.textContent = 'x';
@@ -79,12 +78,12 @@ var main = (function() {
         item.id = uuidv4();
         item.classList.add('item');
         h1.classList.add('title');
-        h1.onclick = function() {
+        h1.onclick = function(event) {
             main.toggleDesc(event);
         }
         h1.textContent = 'Title ' + (numberOfItems + 1);
         span.classList.add('close');
-        span.onclick = function() {
+        span.onclick = function(event) {
             main.deleteItem(event);
         }
         span.textContent = 'x';
